@@ -1,0 +1,17 @@
+[Unit]
+Description=Telegram Anti-Theft Security Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=TUO_UTENTE
+WorkingDirectory=/home/TUO_UTENTE/security_bot
+ExecStart=/home/TUO_UTENTE/security_bot/venv/bin/python /home/TUO_UTENTE/security_bot/security_bot.py
+Restart=always
+RestartSec=10
+Environment="DISPLAY=:0"
+Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
+
+[Install]
+WantedBy=multi-user.target
